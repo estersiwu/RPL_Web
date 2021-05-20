@@ -30,14 +30,22 @@ class LoginController extends Controller
     //protected $redirectTo = '/home';
     public function redirectTo()
     {
-        if(Auth::user()->role == 'koordinator')
-        {
-            return 'jadwalujian';
-        }
-        else
+
+        //Mahasiswa User Login
+        if(Auth::user()->role == NULL)
         {
             return 'home';
         }
+
+        //Koordinator Login
+        if(Auth::user()->role == 'koordinator')
+        {
+            return 'koordinator.dashboardkoord';
+        }
+        //else
+        //{
+            //return 'home';
+        //}
     }
 
     /**

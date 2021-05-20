@@ -12,8 +12,30 @@ class JadwalController extends Controller
         return view('jadwal_ujian.jadwal',['data_jadwal' => $data_jadwal]);
     }
 
-    //public function tambah_jadwal()
-    //{
-        //return view('jadwal_tambah');
-    //}
+    public function tambahjadwal(Request $request)
+    {
+        \App\JadwalUjian::create($request->all());
+        return redirect('/jadwalujian')->with('sukses','Data Berhasil diTambahkan.');
+    }
+
+    public function editjadwal($id)
+    {
+        $jadwalujian = \App\JadwalUjian::find($id);
+        return view('jadwal_ujian/editjadwal',['jadwalujian' => $jadwalujian]);
+    }
+
+    public function updatejadwal(Request $request,$id)
+    {
+        $jadwalujian = \App\JadwalUjian::find($id);
+        $jadwalujian->update($request->all());
+        return redirect('/jadwalujian')->with('sukses','Data Berhasil diUpdate');
+    }
+
+    public function deletejadwal($id)
+    {
+        $jadwalujian = \App\JadwalUjian::find($id);
+        $jadwalujian->delete($jadwalujian);
+        return redirect('/jadwalujian')->with('sukses','Data Berhasil diHapus');
+    }
+
 }

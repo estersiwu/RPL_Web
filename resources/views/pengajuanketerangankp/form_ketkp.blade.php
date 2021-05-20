@@ -1,9 +1,8 @@
 
 <!doctype html>
 <html lang="en">
-
 <head>
-	<title>Dashboard | SIKP UKDW</title>
+	<title>Formulir Surat Keterangan KP | SIKP</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -55,15 +54,6 @@
 								<li><a href="#" class="more">Lihat semua notifikasi</a></li>
 							</ul>
 						</li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-question-circle"></i> <span>Help</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">-</a></li>
-								<li><a href="#">-</a></li>
-								<li><a href="#">-</a></li>
-								<li><a href="#">-</a></li>
-							</ul>
-						</li>
                         <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -81,10 +71,6 @@
                                     </form>
                                 </div>
                             </li>
-
-						<!-- <li>
-							<a class="update-pro" href="https://www.themeineed.com/downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
-						</li> -->
 					</ul>
 				</div>
 			</div>
@@ -101,8 +87,8 @@
 							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-list"></i> <span>Pengajuan</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">
 								<ul class="nav">
-									<li><a href="/pengajuanketerangankp" class="">Surat Keterangan KP</a></li>
-									<li><a href="/pengajuanprakp" class="active">Pra KP</a></li>
+									<li><a href="/pengajuanketerangankp" class="active">Surat Keterangan KP</a></li>
+									<li><a href="/pengajuanprakp" class="">Pra KP</a></li>
 									<li><a href="/pengajuankp" class="">KP</a></li>
 								</ul>
 							</div>
@@ -112,21 +98,21 @@
 				</nav>
 			</div>
 		</div>
-		<div class="main">
+        <div class="main">
             <div class="main-content">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="panel">
                                 <div class="panel-heading">
-                                <title>Form Surat Keterangan KP</title>
-                            <body>
-                            <form action="/pengajuanketerangankp/tambah" method="POST">
-                                {{csrf_field()}}
-                                <div class="row">
-                                    <div class="col-sm-3"></div>
-                                    <div class="col-sm-6">
-                                    <h1 align="center">Pra KP</h1>
+                                    <title>Form Surat Keterangan KP</title>
+                                <body>
+                                <form action="{{ route('formketkp.store')}}" method="POST">
+                                    {{csrf_field()}}
+                                    <div class="row">
+                                        <div class="col-sm-2"></div>
+                                        <div class="col-sm-7">
+                                        <h1 align="center">Surat Keterangan KP</h1>
                                         <div class="form-group">
                                             <label for="semester">Semester</label>
                                             <select name="semester" id="semester" class="form-control">
@@ -143,63 +129,46 @@
                                                 <option value="2021/2022">2021/2022</option>
                                             </select>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="" class="label-control">Status Pra KP</label>
-                                            <input type="text" name="status_prakp" class="form-control">
+                                            <div class="form-group">
+                                                <label for="" class="label-control">NIM</label>
+                                                <input name="nim" type="text" class="form-control" placeholder="Masukkan NIM">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="" class="label-control">Lembaga</label>
+                                                <input name="lembaga" type="text" class="form-control" placeholder="Masukkan Lembaga">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="" class="label-control">Pimpinan</label>
+                                                <input name="pimpinan" type="text" class="form-control" placeholder="Masukkan Pimpinan">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="" class="label-control">No. Telp</label>
+                                                <input name="no_telp" type="text" class="form-control" placeholder="Masukkan No.Telp">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="" class="label-control">Alamat</label>
+                                                <textarea type="text" name="alamat" class="form-control" cols="30" rows="4" placeholder="Masukkan Alamat"></textarea>
+                                                @if($errors->has('alamat'))
+                                                <div class="text-danger">
+                                                    {{ $errors->first('alamat')}}
+                                                </div>
+                                            @endif
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="" class="label-control">Fax</label>
+                                                <input name="fax" type="text" class="form-control" placeholder="Masukkan Fax">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="formFile" class="form-label">Dokumen</label>
+                                                <input name="dokumen" class="form-control" type="file" id="formFile">
+                                            </div>
+                                            {{csrf_field()}}
+                                            <div class="form-group">
+                                                <input type="submit" value="Submit" class="btn btn-primary">
                                         </div>
-                                        <div class="form-group">
-                                            <label for="" class="label-control">NIM</label>
-                                            <input type="text" name="nim" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="" class="label-control">NIK</label>
-                                            <input type="text" name="nik" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="" class="label-control">Tools</label>
-                                            <input type="text" name="tools" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="" class="label-control">Spesifikasi</label>
-                                            <input type="text" name="spesifikasi" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="" class="label-control">Dokumen</label>
-                                            <input type="file" class="form-control" aria-label="dokumen" required>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="" class="label-control">Penguji</label>
-                                            <input type="text" name="penguji" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="" class="label-control">Ruang</label>
-                                            <input type="text" name="ruang" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="" class="label-control">Lembaga</label>
-                                            <input type="text" name="lembaga" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="" class="label-control">Pimpinan</label>
-                                            <input type="text" name="pimpinan" class="form-control">
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="" class="label-control">Alamat</label>
-                                            <textarea type="text" name="alamat" class="form-control" cols="30" rows="4"></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="" class="label-control">No. Telp</label>
-                                            <input type="text" name="no_telp" class="form-control">
-                                        </div>
-                                        {{csrf_field()}}
-                                        <input type="submit" value="Submit" class="btn btn-primary">
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </body>
+                                </form>
+                        </body>
 			<!-- MAIN CONTENT -->
 								<!-- END TABBED CONTENT -->
 							</div>
@@ -218,5 +187,4 @@
 	<script src="{{asset('admin/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
 	<script src="{{asset('admin/assets/scripts/klorofil-common.js')}}"></script>
 </body>
-
 </html>

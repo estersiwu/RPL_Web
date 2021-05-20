@@ -21,7 +21,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #F4A460;">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #34495e;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                 <img src="/img/tes.png" alt="" width="70" height="40">

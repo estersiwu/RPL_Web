@@ -1,9 +1,8 @@
-
 <!doctype html>
 <html lang="en">
 
 <head>
-	<title>Dashboard | SIKP</title>
+	<title>Home | SIKP</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -28,7 +27,7 @@
 		<!-- NAVBAR -->
 		<nav class="navbar navbar-default navbar-fixed-top" >
 			<div class="brand">
-				<a href="/home"><img src="{{asset('img/tes.png')}}" alt="Logo SIKP UKDW" width="80" height="10" 
+				<a href="/home"><img src="{{asset('img/tes.png')}}" alt="Logo SIKP UKDW" width="80" height="10"
                 class="img-responsive logo"></a>
 			</div>
 			<div class="container-fluid">
@@ -55,15 +54,6 @@
 								<li><a href="#" class="more">Lihat semua notifikasi</a></li>
 							</ul>
 						</li>
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-question-circle"></i> <span>Help</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">-</a></li>
-								<li><a href="#">-</a></li>
-								<li><a href="#">-</a></li>
-								<li><a href="#">-</a></li>
-							</ul>
-						</li>
                         <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -81,10 +71,6 @@
                                     </form>
                                 </div>
                             </li>
-						
-						<!-- <li>
-							<a class="update-pro" href="https://www.themeineed.com/downloads/klorofil-pro-bootstrap-admin-dashboard-template/?utm_source=klorofil&utm_medium=template&utm_campaign=KlorofilPro" title="Upgrade to Pro" target="_blank"><i class="fa fa-rocket"></i> <span>UPGRADE TO PRO</span></a>
-						</li> -->
 					</ul>
 				</div>
 			</div>
@@ -95,8 +81,8 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="/home" class="active"><i class="lnr lnr-home"></i> <span>Home</span></a></li>
-						<li><a href="elements.html" class=""><i class="lnr lnr-user"></i> <span>Mahasiswa</span></a></li>
+						<li><a href="/home" class=""><i class="lnr lnr-home"></i> <span>Home</span></a></li>
+						<li><a href="/mahasiswa" class=""><i class="lnr lnr-user"></i> <span>Mahasiswa</span></a></li>
                         <li>
 							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-list"></i> <span>Pengajuan</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
 							<div id="subPages" class="collapse ">

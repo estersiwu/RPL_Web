@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -17,8 +17,8 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #F4A460;
-                color: #000;
+                background-color: #34495e;
+                color: #ffff;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
                 height: 100vh;
