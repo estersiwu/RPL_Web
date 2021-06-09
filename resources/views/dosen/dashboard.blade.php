@@ -47,12 +47,6 @@
 								<i class="lnr lnr-alarm"></i>
 								<span class="badge bg-danger">3</span>
 							</a>
-							<ul class="dropdown-menu notifications">
-								<li><a href="#" class="notification-item"><span class="dot bg-success"></span>Pengajuan Diterima</a></li>
-								<li><a href="#" class="notification-item"><span class="dot bg-danger"></span>Menunggu Verifikasi</a></li>
-								<li><a href="#" class="notification-item"><span class="dot bg-success"></span>Pengajuan Terkirim</a></li>
-								<li><a href="#" class="more">Lihat semua notifikasi</a></li>
-							</ul>
 						</li>
                         <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -81,19 +75,10 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="/home" class="active"><i class="lnr lnr-home"></i> <span>Home</span></a></li>
-						<li><a href="/mahasiswa" class=""><i class="lnr lnr-user"></i> <span>Mahasiswa</span></a></li>
-                        <li>
-							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-list"></i> <span>Pengajuan</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="subPages" class="collapse ">
-								<ul class="nav">
-									<li><a href="/pengajuanketerangankp" class="">Surat Keterangan KP</a></li>
-									<li><a href="/pengajuanprakp" class="">Pra KP</a></li>
-									<li><a href="/pengajuankp" class="">KP</a></li>
-								</ul>
-							</div>
-						</li>
-						<li><a href="notifications.html" class=""><i class="lnr lnr-alarm"></i> <span>Pengumuman</span></a></li>
+						<li><a href="/dashboard-dosen" class="active"><i class="lnr lnr-home"></i> <span>Home</span></a></li>
+						<li><a href="/dashboard-dosen" class=""><i class="lnr lnr-user"></i> <span>Dosen</span></a></li>
+                        <li><a href="/daftarbimbingan" class=""><i class="lnr lnr-file-empty"></i> <span>Daftar Bimbingan</span></a></li>
+                        <li><a href="/lihatjadwal" class=""><i class="lnr lnr-file-empty"></i> <span>Jadwal Ujian</span></a></li>
 					</ul>
 				</nav>
 			</div>
@@ -112,9 +97,7 @@
 						<div class="panel-body">
 							<div class="row">
 								<div class="col-md-6">
-										<p>
-											<span class="title">Silakan Mengajukan Surat Keterangan KP, Pra KP, dan KP</span>
-										</p>
+
 									</div>
 								</div>
 					</div>

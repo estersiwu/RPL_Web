@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFormPrakpTable extends Migration
+class CreatePengajuanKetkpTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,21 +13,17 @@ class CreateFormPrakpTable extends Migration
      */
     public function up()
     {
-        Schema::create('form_prakp', function (Blueprint $table) {
+        Schema::create('pengajuan_ketkp', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('semester', ['genap', 'ganjil']);
+            $table->string('semester');
             $table->char('tahun');
             $table->char('nim');
-            $table->char('nik');
-            $table->string('tools');
-            $table->string('spesifikasi');
-            $table->string('dokumen');
-            $table->string('penguji');
-            $table->string('ruang');
             $table->string('lembaga');
             $table->string('pimpinan');
-            $table->text('alamat');
             $table->char('no_telp');
+            $table->text('alamat');
+            $table->char('fax');
+            $table->string('dokumen');
             $table->timestamps();
         });
     }
@@ -39,6 +35,6 @@ class CreateFormPrakpTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('form_prakp');
+        Schema::dropIfExists('pengajuan_ketkp');
     }
 }

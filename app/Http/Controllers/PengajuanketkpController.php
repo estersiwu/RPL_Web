@@ -2,39 +2,51 @@
 
 namespace App\Http\Controllers;
 
-use App\Keterangan_kp;
 use Illuminate\Http\Request;
 
-class FormketkpController extends Controller
+class PengajuanketkpController extends Controller
 {
-    public function form_ketkp()
+    public function pengajuan_ketkp()
     {
-        $data_ketkp = \App\Keterangan_kp::all();
-        return view('pengajuanketerangankp.form_ketkp',['data_ketkp' => $data_ketkp]);
+        $data_ketkp = \App\Pengajuanketkp::all();
+        return view('pengajuanketerangankp.pengajuan_ketkp',['data_ketkp' => $data_ketkp]);
     }
 
-    public function tambah_ketkp(Request $request)
+    public function addketkp(Request $request)
     {
-        \App\Keterangan_kp::create($request->all());
+        \App\Pengajuanketkp::create($request->all());
         return redirect('/pengajuanketerangankp')->with('sukses','Formulir Berhasil diSubmit');
     }
 
     public function store(Request $request)
     {
-        \App\Keterangan_kp::create([
-            'semester' => $request->input('semester'),
-            'tahun' => $request->input('tahun'),
-            'nim' => $request->input('nim'),
-            'lembaga' => $request->input('lembaga'),
-            'pimpinan' => $request->input('pimpinan'),
-            'no_telp' => $request->input('no_telp'),
-            'alamat' => $request->input('alamat'),
-            'fax' => $request->input('fax'),
-            'dokumen' => $request->input('dokumen')
+        $this->validate($request, [
+            'semester'=>'required',
+            'tahun'=>'required',
+            'nim'=>'required',
+            'lembaga'=>'required',
+            'pimpinan'=>'required',
+            'no_telp'=>'required',
+            'alamat'=>'required',
+            'fax'=>'required',
+            'dokumen'=>'required'
         ]);
 
-        return redirect('/pengajuanketerangankp')->with('sukses','Formulir Berhasil diSubmit');
+        \App\Pengajuanketkp::create([
+            'semester'=>$request->input('semester'),
+            'tahun'=>$request->input('tahun'),
+            'nim'=>$request->input('nim'),
+            'lembaga'=>$request->input('lembaga'),
+            'pimpinan'=>$request->input('pimpinan'),
+            'no_telp'=>$request->input('no_telp'),
+            'alamat'=>$request->input('alamat'),
+            'fax'=>$request->input('fax'),
+            'dokumen'=>$request->input('dokumen')
+        ]);
+        //\App\Keterangan_kp::create($request->all());
 
+        return redirect('/pengajuanketerangankp')->with('sukses','Formulir Berhasil diSubmit');
+        //return redirect('/pengajuanketerangankp')->with(['gagal' => 'Formulir Gagal diSubmit']);
     }
 
     /*public function submit(Request $request)
@@ -60,12 +72,6 @@ class FormketkpController extends Controller
     //public function create(Request $request)
     //{
         //\App\Keterangan_kp::create($request->all());
-        //return $request->all();
-    //}
-
-    //public function create(Request $request)
-    //{
-        //\App\Keterangan_kp::create($request->all());
         //if($submit){
             //Alert::success('Data Terkirim');
         //}else{
@@ -78,8 +84,6 @@ class FormketkpController extends Controller
         return view('add_ketkp');
     }
 
-
-    }
     public function ketkp(Request $request)
     {
         $data = [

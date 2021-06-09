@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class DosenMiddleware
 {
@@ -15,6 +16,13 @@ class DosenMiddleware
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if(Auth::user()->role == 'dosen')
+        {
+            return $next($request);
+        }
+        else
+        {
+            return redirect('/dashboard-dosen')->with('status','Anda tidak dapat mengakses Dashboard ini');
+        }
     }
 }

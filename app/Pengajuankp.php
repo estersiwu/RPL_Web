@@ -4,8 +4,8 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Kp extends Model
+class Pengajuankp extends Model
 {
-    protected $table = 'form_kp';
+    protected $table = 'pengajuan_kp';
     protected $guarded =[];
 }

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-default navbar-fixed-top" >
     <div class="brand">
-        <a href="/dashboard"><img src="{{asset('img/tes.png')}}" alt="Logo SIKP UKDW" width="80" height="10"
+        <a href="/dashboardkoord"><img src="{{asset('img/tes.png')}}" alt="Logo SIKP UKDW" width="80" height="10"
         class="img-responsive logo"></a>
     </div>
     <div class="container-fluid">

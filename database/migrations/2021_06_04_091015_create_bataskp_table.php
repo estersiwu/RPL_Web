@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFormKpTable extends Migration
+class CreateBataskpTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateFormKpTable extends Migration
      */
     public function up()
     {
-        Schema::create('form_kp', function (Blueprint $table) {
+        Schema::create('bataskp', function (Blueprint $table) {
             $table->increments('id');
+            $table->char('nim');
+            $table->date('tanggal_mulai');
+            $table->date('tanggal_selesai');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateFormKpTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('form_kp');
+        Schema::dropIfExists('bataskp');
     }
 }

@@ -22,7 +22,7 @@ class KoordinatorMiddleware
         }
         else
         {
-            return redirect('/dashboardkoord')->with('status','Anda tidak dapat mengakses Dashboard ini');
+            return redirect('/dashboard-koord')->with('status','Anda tidak dapat mengakses Dashboard ini');
         }
     }
 }

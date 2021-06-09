@@ -4,11 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Keterangan_kp extends Model
+class Pengajuanketkp extends Model
 {
-    protected $table = 'form_ketkp';
-    //protected $guarded =[];
-    protected $fillable =[
+    protected $table = 'pengajuan_ketkp';
+    protected $guarded =[];
+    /*protected $fillable =[
         'semester',
         'nim',
         'tahun',
@@ -18,5 +18,5 @@ class Keterangan_kp extends Model
         'alamat',
         'fax',
         'dokumen',
-    ];
+    ];*/
 }

@@ -14,6 +14,8 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link rel="apple-touch-icon" sizes="76x76" href="{{asset('img/SI (3).png')}}">
         <link rel="icon" type="image/png" sizes="120x120" href="{{asset('img/SI (3).png')}}">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{asset('admin/assets/img/SI (3).png')}}">
+	<link rel="icon" type="image/png" sizes="120x120" href="{{asset('img/SI.png')}}">
         <!-- Styles -->
         <style>
             html, body {

@@ -2,12 +2,12 @@
 <html lang="en">
 
 <head>
-	<title>Data Pengajuan Surat Keterangan KP | SIKP</title>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-	<!-- VENDOR CSS -->
-	<link rel="stylesheet" href="{{asset('admin/assets/vendor/bootstrap/css/bootstrap.min.css')}}">
+    <title>Data Pengajuan Pra KP | SIKP</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- VENDOR CSS -->
+    <link rel="stylesheet" href="{{asset('admin/assets/vendor/bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/assets/vendor/font-awesome/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{asset('admin/assets/vendor/linearicons/style.css')}}">
     <!-- MAIN CSS -->
@@ -82,8 +82,8 @@
                             <a href="#subPages" data-toggle="collapse" class="active"><i class="lnr lnr-list"></i> <span>Data Pengajuan</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
                             <div id="subPages" class="collapse ">
                                 <ul class="nav">
-                                    <li><a href="/datapengajuanketerangankp" class="active"><i class="lnr lnr-file-empty"></i> <span>Surat Keterangan KP</span></a></li>
-                                    <li><a href="/datapengajuan-prakp" class=""><i class="lnr lnr-file-empty"></i> <span>Pra KP</span></a></li>
+                                    <li><a href="/datapengajuanketerangankp" class=""><i class="lnr lnr-file-empty"></i> <span>Surat Keterangan KP</span></a></li>
+                                    <li><a href="/datapengajuan-prakp" class="active"><i class="lnr lnr-file-empty"></i> <span>Pra KP</span></a></li>
                                     <li><a href="/datapengajuan-kp" class=""><i class="lnr lnr-file-empty"></i> <span>KP</span></a></li>
                                 </ul>
                             </div>
@@ -102,7 +102,7 @@
                     <div class="col-md-12">
                         <div class="panel">
                             <div class="panel-heading">
-                                <h3 class="text-center">DATA PENGAJUAN SURAT KETERANGAN KP</h3>
+                                <h3 class="text-center">DATA PENGAJUAN PRA KP</h3>
                             </div>
                             <div class="panel-body">
                                 <table id="datatable" class="table table-striped">
@@ -110,28 +110,32 @@
                                         <tr>
                                             <th>NIM</th>
                                             <th>Semester</th>
-                                            <th>Tahun</th>
+                                            <th>Tahun Ajaran</th>
+                                            <th>NIK</th>
+                                            <th>Tools</th>
+                                            <th>Spesifikasi</th>
+                                            <th>Dokumen</th>
                                             <th>Lembaga</th>
                                             <th>Pimpinan</th>
-                                            <th>No. Telp</th>
                                             <th>Alamat</th>
-                                            <th>Fax</th>
-                                            <th>Dokumen</th>
+                                            <th>No. Telp</th>
                                             <th>Status Verifikasi</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($data_ketkp as $pengajuan_ketkp)
+                                        @foreach ($data_prakp as $pengajuan_prakp)
                                         <tr>
-                                            <td>{{ $pengajuan_ketkp->nim }}</td>
-                                            <td>{{ $pengajuan_ketkp->semester }}</td>
-                                            <td>{{ $pengajuan_ketkp->tahun }}</td>
-                                            <td>{{ $pengajuan_ketkp->lembaga }}</td>
-                                            <td>{{ $pengajuan_ketkp->pimpinan }}</td>
-                                            <td>{{ $pengajuan_ketkp->no_telp }}</td>
-                                            <td>{{ $pengajuan_ketkp->alamat }}</td>
-                                            <td>{{ $pengajuan_ketkp->fax }}</td>
-                                            <td><a href="{{url('/download',$dokumen = $pengajuan_ketkp->first()->dokumen)}}">Download</a></td>
+                                            <td>{{ $pengajuan_prakp->nim }}</td>
+                                            <td>{{ $pengajuan_prakp->semester }}</td>
+                                            <td>{{ $pengajuan_prakp->tahun }}</td>
+                                            <td>{{ $pengajuan_prakp->nik }}</td>
+                                            <td>{{ $pengajuan_prakp->tools }}</td>
+                                            <td>{{ $pengajuan_prakp->spesifikasi }}</td>
+                                            <td><a href="{{url('/download',$dokumen = $pengajuan_prakp->first()->dokumen)}}">Download</a></td>
+                                            <td>{{ $pengajuan_prakp->lembaga }}</td>
+                                            <td>{{ $pengajuan_prakp->pimpinan }}</td>
+                                            <td>{{ $pengajuan_prakp->alamat }}</td>
+                                            <td>{{ $pengajuan_prakp->no_telp }}</td>
                                             <td>
                                                 <button type="button" class="btn btn-warning delete"><l class="lnr" data-toggle="modal" data-target="#deleteModal">BELUM DIVERIFIKASI</l></button>
                                         </tr>
@@ -145,13 +149,13 @@
                                 <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                    <h2 class="modal-title" id="exampleModalLabel">Verifikasi Surat Keterangan KP</h2>
+                                    <h2 class="modal-title" id="exampleModalLabel">Verifikasi Pra KP</h2>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                     </div>
                                     <div class="modal-body">
-                                        <form action="/datapengajuanketerangankp" method="POST" id="deleteForm">
+                                        <form action="/datapengajuan-pra-kp" method="POST" id="deleteForm">
                                             {{csrf_field()}}
                                             {{ method_field('DITERIMA') }}
 
@@ -198,7 +202,7 @@
 
             //$('#id').val(data[0]);
 
-            $('#deleteForm').attr('action', '/datapengajuanketerangankp'+data[0]);
+            $('#deleteForm').attr('action', '/datapengajuan-prakp'+data[0]);
             $('#deleteModal').modal('show');
         });
     });
@@ -206,3 +210,5 @@
 </body>
 
 </html>
+
+

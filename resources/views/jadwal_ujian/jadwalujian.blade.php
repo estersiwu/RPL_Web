@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Home | SIKP</title>
+	<title>Jadwal Ujian | SIKP</title>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -47,12 +47,6 @@
 								<i class="lnr lnr-alarm"></i>
 								<span class="badge bg-danger">3</span>
 							</a>
-							<ul class="dropdown-menu notifications">
-								<li><a href="#" class="notification-item"><span class="dot bg-success"></span>Pengajuan Diterima</a></li>
-								<li><a href="#" class="notification-item"><span class="dot bg-danger"></span>Menunggu Verifikasi</a></li>
-								<li><a href="#" class="notification-item"><span class="dot bg-success"></span>Pengajuan Terkirim</a></li>
-								<li><a href="#" class="more">Lihat semua notifikasi</a></li>
-							</ul>
 						</li>
                         <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -81,46 +75,53 @@
 			<div class="sidebar-scroll">
 				<nav>
 					<ul class="nav">
-						<li><a href="/home" class="active"><i class="lnr lnr-home"></i> <span>Home</span></a></li>
-						<li><a href="/mahasiswa" class=""><i class="lnr lnr-user"></i> <span>Mahasiswa</span></a></li>
-                        <li>
-							<a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-list"></i> <span>Pengajuan</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
-							<div id="subPages" class="collapse ">
-								<ul class="nav">
-									<li><a href="/pengajuanketerangankp" class="">Surat Keterangan KP</a></li>
-									<li><a href="/pengajuanprakp" class="">Pra KP</a></li>
-									<li><a href="/pengajuankp" class="">KP</a></li>
-								</ul>
-							</div>
-						</li>
-						<li><a href="notifications.html" class=""><i class="lnr lnr-alarm"></i> <span>Pengumuman</span></a></li>
+						<li><a href="/home" class=""><i class="lnr lnr-home"></i> <span>Home</span></a></li>
+						<li><a href="/dashboard-dosen" class=""><i class="lnr lnr-user"></i> <span>Dosen</span></a></li>
+                        <li><a href="/daftarbimbingan" class=""><i class="lnr lnr-file-empty"></i> <span>Daftar Bimbingan</span></a></li>
+                        <li><a href="/lihatjadwal" class="active"><i class="lnr lnr-file-empty"></i> <span>Jadwal Ujian</span></a></li>
 					</ul>
 				</nav>
 			</div>
 		</div>
-		<!-- END LEFT SIDEBAR -->
-		<!-- MAIN -->
 		<div class="main">
-			<!-- MAIN CONTENT -->
-			<div class="main-content">
-				<div class="container-fluid">
-					<!-- OVERVIEW -->
-					<div class="panel panel-headline">
-						<div class="panel-heading">
-							<h1>Selamat Datang di Website SIKP</h1>
-						</div>
-						<div class="panel-body">
-							<div class="row">
-								<div class="col-md-6">
-										<p>
-											<span class="title">Silakan Mengajukan Surat Keterangan KP, Pra KP, dan KP</span>
-										</p>
-									</div>
-								</div>
-					</div>
-					<!-- END OVERVIEW -->
-		<!-- END MAIN -->
-	<!-- END WRAPPER -->
+            <div class="main-content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h3 align="center">JADWAL UJIAN</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <table class="table table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>NIM</th>
+                                                <th>Ruang</th>
+                                                <th>Tanggal</th>
+                                                <th>Jam</th>
+                                                <th>Dosen Penguji</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($data_jadwal as $jadwal_ujian)
+                                            <tr>
+                                                <td>{{$jadwal_ujian->nim}}</td>
+                                                <td>{{$jadwal_ujian->ruang}}</td>
+                                                <td>{{$jadwal_ujian->tanggal}}</td>
+                                                <td>{{$jadwal_ujian->jam}}</td>
+                                                <td>{{$jadwal_ujian->dosen_penguji}}</td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 	<!-- Javascript -->
 	<script src="{{asset('admin/assets/vendor/jquery/jquery.min.js')}}"></script>
 	<script src="{{asset('admin/assets/vendor/bootstrap/js/bootstrap.min.js')}}"></script>

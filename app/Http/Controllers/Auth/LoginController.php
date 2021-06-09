@@ -31,16 +31,22 @@ class LoginController extends Controller
     public function redirectTo()
     {
 
+        //Koordinator Login
+        if(Auth::user()->role == 'koordinator')
+        {
+            return 'dashboard-koord';
+        }
+
+        //Dosen Login
+        if(Auth::user()->role == 'dosen')
+        {
+            return 'dashboard-dosen';
+        }
+
         //Mahasiswa User Login
         if(Auth::user()->role == NULL)
         {
             return 'home';
-        }
-
-        //Koordinator Login
-        if(Auth::user()->role == 'koordinator')
-        {
-            return 'koordinator.dashboardkoord';
         }
         //else
         //{

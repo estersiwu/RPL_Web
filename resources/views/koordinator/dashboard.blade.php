@@ -1,7 +1,8 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-    <title>Home| SIKP/title>
+    <title>Home | SIKP</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -26,7 +27,7 @@
         <!-- NAVBAR -->
         <nav class="navbar navbar-default navbar-fixed-top" >
             <div class="brand">
-                <a href="/dashboardkoord"><img src="{{asset('img/tes.png')}}" alt="Logo SIKP UKDW" width="80" height="10"
+                <a href="/dashboard-koord"><img src="{{asset('img/tes.png')}}" alt="Logo SIKP UKDW" width="80" height="10"
                 class="img-responsive logo"></a>
             </div>
             <div class="container-fluid">
@@ -46,14 +47,11 @@
                                 <i class="lnr lnr-alarm"></i>
                                 <span class="badge bg-danger">3</span>
                             </a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="lnr lnr-question-circle"></i> <span>Help</span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">-</a></li>
-                                <li><a href="#">-</a></li>
-                                <li><a href="#">-</a></li>
-                                <li><a href="#">-</a></li>
+                            <ul class="dropdown-menu notifications">
+                                <li><a href="#" class="notification-item"><span class="dot bg-success"></span>Pengajuan Diterima</a></li>
+                                <li><a href="#" class="notification-item"><span class="dot bg-danger"></span>Menunggu Verifikasi</a></li>
+                                <li><a href="#" class="notification-item"><span class="dot bg-success"></span>Pengajuan Terkirim</a></li>
+                                <li><a href="#" class="more">Lihat semua notifikasi</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -69,10 +67,10 @@
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </div>
-                         </li>
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -83,43 +81,42 @@
             <div class="sidebar-scroll">
                 <nav>
                     <ul class="nav">
-                        <li><a href="/dashboardkoord" class="active"><i class="lnr lnr-home"></i> <span>Home</span></a></li>
-                        <li><a href="/koordinator" class=""><i class="lnr lnr-user"></i> <span>Koordinator</span></a></li>
-                        <li><a href="/daftarregiskp" class=""><i class="lnr lnr-file-empty"></i> <span>Daftar Registrasi KP</span></a></li>
+                        <li><a href="/dashboard-koord" class="active"><i class="lnr lnr-home"></i> <span>Home</span></a></li>
+                        <li><a href="" class=""><i class="lnr lnr-user"></i> <span>Koordinator</span></a></li>
+                        <li><a href="/daftar-regis-kp" class=""><i class="lnr lnr-file-empty"></i> <span>Daftar Registrasi KP</span></a></li>
                         <li><a href="/jadwalujian" class=""><i class="lnr lnr-file-empty"></i> <span>Jadwal Ujian</span></a></li>
                         <li>
                             <a href="#subPages" data-toggle="collapse" class="collapsed"><i class="lnr lnr-list"></i> <span>Data Pengajuan</span> <i class="icon-submenu lnr lnr-chevron-left"></i></a>
                             <div id="subPages" class="collapse ">
                                 <ul class="nav">
-                                    <li><a href="/datapengajuanketerangankp" class="">Surat Keterangan KP</a></li>
-                                    <li><a href="/datapengajuanprakp" class="">Pra KP</a></li>
-                                    <li><a href="/datapengajuankp" class="">KP</a></li>
+                                    <li><a href="/datapengajuanketerangankp" class=""><i class="lnr lnr-file-empty"></i> <span>Surat Keterangan KP</span></a></li>
+                                    <li><a href="/datapengajuan-prakp" class=""><i class="lnr lnr-file-empty"></i> <span>Pra KP</span></a></li>
+                                    <li><a href="/datapengajuan-kp" class=""><i class="lnr lnr-file-empty"></i> <span>KP</span></a></li>
                                 </ul>
                             </div>
-                        </nav>
-                    </div>
-                </div>
-                <div class="main">
-                    <!-- MAIN CONTENT -->
-                    <div class="main-content">
-                        <div class="container-fluid">
-                            <!-- OVERVIEW -->
-                            <div class="panel panel-headline">
-                                <div class="panel-heading">
-                                    <h1>Selamat Datang di Website SIKP</h1>
-                                </div>
-                                <div class="panel-body">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                                <p>
-                                                    <span class="title">Anda berhasil Login!</span>
-                                                </p>
-                                            </div>
-                                        </div>
+                        </li>
+                        <li><a href="/bataskp" class=""><i class="lnr lnr-file-empty"></i> <span>Batas Pelaksanaan KP</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!-- END LEFT SIDEBAR -->
+        <!-- MAIN -->
+        <div class="main">
+            <!-- MAIN CONTENT -->
+            <div class="main-content">
+                <div class="container-fluid">
+                    <!-- OVERVIEW -->
+                    <div class="panel panel-headline">
+                        <div class="panel-heading">
+                            <h1>Selamat Datang di Website SIKP</h1>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-6">
+
                                     </div>
                                 </div>
-                            </div>
-                        </div>
                     </div>
                     <!-- END OVERVIEW -->
         <!-- END MAIN -->
@@ -130,4 +127,3 @@
     <script src="{{asset('admin/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
     <script src="{{asset('admin/assets/scripts/klorofil-common.js')}}"></script>
 </body>
-
