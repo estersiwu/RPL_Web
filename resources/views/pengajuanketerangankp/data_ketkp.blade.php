@@ -131,7 +131,8 @@
                                             <td>{{ $pengajuan_ketkp->no_telp }}</td>
                                             <td>{{ $pengajuan_ketkp->alamat }}</td>
                                             <td>{{ $pengajuan_ketkp->fax }}</td>
-                                            <td><a href="{{url('/download',$dokumen = $pengajuan_ketkp->first()->dokumen)}}">Download</a></td>
+                                            <td><a href="{{url('/download',$dokumen = $pengajuan_ketkp->first()->dokumen)}}">
+                                                <button type="button" class="btn btn-info">Download</button>
                                             <td>
                                                 <button type="button" class="btn btn-warning delete"><l class="lnr" data-toggle="modal" data-target="#deleteModal">BELUM DIVERIFIKASI</l></button>
                                         </tr>

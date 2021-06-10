@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Dataketkp;
 use Illuminate\Http\Request;
+
+use App\Dataketkp;
 
 use Illuminate\Support\Facades\Storage;
 
@@ -23,10 +24,17 @@ class DataketkpController extends Controller
 
     //}
 
+    /*public function download($file){
+        $file_path = public_path('img/'.$file);
+        return response()->download( $file_path);
+    }*/
+
     public function download(Request $request, $file)
     {
+        //return response()->download(storage_path('app/' . $file->location));
         //return response()->download($file, 'filename.pdf', $file);
         return response()->download(public_path('img/'.$file));
+        //return response()->download(storage_path('/app/upload/client/' . $file));
         //$pathToFile=storage_path()."/app/".$file->filename;
         //return response()->download($pathToFile);
     }

@@ -93,7 +93,6 @@
                                 </ul>
                             </div>
                         </li>
-                        <li><a href="notifications.html" class=""><i class="lnr lnr-alarm"></i> <span>Pemberitahuan</span></a></li>
                     </ul>
                 </nav>
             </div>
@@ -191,7 +190,7 @@
                                             @endif
                                             </div>
                                             <div class="form-group">
-                                                <label for="formFile" class="form-label">Dokumen</label>
+                                                <label for="formFile" class="form-label">Dokumen (Format: Pdf) *</label>
                                                 <input class="form-control" name="dokumen" type="file" id="formFile">
                                               </div>
                                               <div class="form-group">

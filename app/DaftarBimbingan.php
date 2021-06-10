@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class DaftarBimbingan extends Model
 {
-    protected $table ='daftar_bimbingan';
-    protected $fillable = ['nim','nama','judul','lembaga'];
+    protected $table ='pengajuan_kp';
+    protected $fillable = ['nim','judulkp','lembaga'];
 }

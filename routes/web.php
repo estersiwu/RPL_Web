@@ -62,6 +62,7 @@ Route::get('/datapengajuanketerangankp','DataketkpController@dataketkp');
 Route::post('/postsuratketkp', 'FormketkpController@postKetkp')->name('inputData');
 Route::post('/pengajuanketerangankp/create','FormketkpController@create');
 
+//Route::get('/download/{file}','DataketkpController@download')->name('download');
 Route::get('/download{file}','DataketkpController@download');
 Route::get('/download{file}','DataprakpController@download');
 Route::get('/download{file}','DatakpController@download');

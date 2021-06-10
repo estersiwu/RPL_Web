@@ -19,6 +19,9 @@
 	<!-- ICONS -->
 	<link rel="apple-touch-icon" sizes="76x76" href="{{asset('admin/assets/img/apple-icon.png')}}">
 	<link rel="icon" type="image/png" sizes="120x120" href="{{asset('img/SI.png')}}">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
 </head>
 
 <body>
@@ -93,7 +96,7 @@
                                     <h3 align="center">JADWAL UJIAN</h3>
                                 </div>
                                 <div class="panel-body">
-                                    <table class="table table-hover">
+                                    <table id="datatable" class="table table-striped">
                                         <thead>
                                             <tr>
                                                 <th>NIM</th>
@@ -127,4 +130,26 @@
 	<script src="{{asset('admin/assets/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
 	<script src="{{asset('admin/assets/vendor/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
 	<script src="{{asset('admin/assets/scripts/klorofil-common.js')}}"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var table = $('#datatable').DataTable();
+
+            table.on('click', '.diterima', function () {
+                $tr =$(this).closest('tr');
+                if ($($tr).hasClass('child')) {
+                    $tr = $tr.prev('.parent');
+                }
+
+                var data = table.row($tr).$data();
+                console.log(data);
+
+                //$('#id').val(data[0]);
+
+                $('#deleteForm').attr('action', '/lihatjadwal'+data[0]);
+                $('#deleteModal').modal('show');
+            });
+        });
+</script>
 </body>
